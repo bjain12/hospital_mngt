@@ -1,0 +1,41 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+
+<style>
+
+.mydivstyle:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+
+}
+
+</style>
+
+{% block content %}
+<h1 class="text-center" style="margin-top: 50px;"> Admin Dashboard</h1>
+<br><br><br><br><br>
+
+<div class="container" style="display: flex;">
+    <div class="row mydivstyle"  style="margin: auto; text-align: center; width: auto;">
+        <div class="col-sm-4 ">
+            <h2 style="color: red; margin-top: 30px;">{{d}}</h2>
+            <a href="{% url 'view_doctor' %}"><h4 style="color: blue; margin-top: 30px;">Doctors</h4>
+        </div>
+    </div>
+    <div class="row mydivstyle"  style="margin: auto; text-align: center; width: auto;" >
+        <div class="col-sm-4">
+            <h2 style="color: red; margin-top: 30px;">{{p}}</h2>
+            <a href="{% url 'view_patient' %}"><h4 style="color: blue; margin-top: 30px;">Patients</h4>
+        </div>
+    </div>
+    <div class="row mydivstyle" style="margin: auto; text-align: center; width: auto;">
+        <div class="col-sm-4" >
+            <h2 style="color: red; margin-top: 30px;">{{ap}}</h2>
+            <a href="{% url 'view_appointment' %}"><h4 style="color: blue; margin-top: 30px;">Appointments</h4>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% include 'footer.html' %}

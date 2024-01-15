@@ -1,0 +1,37 @@
+{% include 'base.html' %}
+{% load static %}
+{% include 'navigation.html' %}
+
+<div>
+    <h2 style="text-align: center; margin-top: 50px;">View Appointment</h2>
+
+        <table id="example" class="table table-hover" style="margin-top: 30px; text-align: justify;">
+            <thead>
+                <tr>
+                    <th>Appointment ID</th>
+                    <th>Doctor Name </th>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in app %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.doctor.Name}}</td>
+                    <td>{{i.patient.name}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.time}}</td>
+                    <td><a href="{% url 'delete_appointment' i.id %}"
+                        onclick="return confirm('Are you sure you want to delete?')"
+                        class="btn btn-danger">Delete</a>
+                    </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+
+{% include 'footer.html' %}
